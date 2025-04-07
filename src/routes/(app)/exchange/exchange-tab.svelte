@@ -220,13 +220,14 @@
         }
     }
 </script>
-<div class="p-6 bg-zinc-900 rounded-lg shadow w-full flex">
+<div class="p-6 rounded-lg shadow w-full flex bg-walnut-accent text-black">
     <!-- Левая колонка -->
     <div class="w-1/2 pr-4 flex flex-col h-[400px]">
         <!-- Автор -->
         <div class="flex">
             <div class="w-1/2 mr-2">
 				<Input 
+				class="bg-walnut-accent text-black"
 				id="lastName" 
 				label="Автор" 
 				bind:value={lastName}
@@ -240,6 +241,7 @@
             </div>
             <div class="w-1/2 mr-2 mt-6">
                 <Input 
+					class="bg-walnut-accent text-black"
                     id="firstName" 
                     label="" 
                     bind:value={firstName}
@@ -255,7 +257,7 @@
         <!-- Название книги -->
         <div>
             <Input 
-				
+				class="bg-walnut-accent text-black"
         		id="title" 
         		label="Название книги" 
         		bind:value={title}
@@ -273,6 +275,7 @@
                 <!-- Поле ISBN -->
                 <div class="w-1/2">
 					<Input
+					class="bg-walnut-accent text-black"
 					id="isbn"
 					label="ISBN"
 					bind:value={isbn}
@@ -287,12 +290,13 @@
                 </div>
                 <!-- Поле Год издания -->
 				<div class="w-1/2">
-					<span class="block font-medium">
+					<span class="block font-medium ">
 						Год издания <span class="font-bold text-red-500">*</span>
 					</span>
 					
 					<Combobox.Root
 						type="single"
+						
 						bind:value={selectedYear}
 						onOpenChange={handleOpenChange}
 						name="publishYear"
@@ -300,7 +304,7 @@
 						<div class="relative">
 							<Combobox.Input
 								oninput={(e) => (searchValue = e.currentTarget.value)}
-								class="h-input w-full border px-3 py-2 rounded"
+								class="h-input w-full border px-3 py-2 rounded bg-walnut-accent text-black"
 								placeholder="2022"
 								aria-label="Выберите год издания"
 							/>
@@ -312,14 +316,14 @@
 						{#if isOpen}
 							<Combobox.Portal>
 								<Combobox.Content 
-									class="max-h-60 w-full overflow-auto rounded-md border bg-gray-500 shadow-lg z-50"
+									class="max-h-60 w-full overflow-auto rounded-md border text-black bg-walnut-light shadow-lg z-50"
 									sideOffset={5}
 								>
 									<Combobox.Viewport class="p-1">
 										{#each filteredYears as year (year.value)}
 										<Combobox.Item
 										value={year.value}
-										class="relative flex cursor-pointer items-center px-4 py-2 hover:bg-gray-600 pr-10"
+										class="relative flex cursor-pointer items-center px-4 py-2 hover:bg-walnut-accent pr-10"
 										onclick={() => handleItemSelect(year.value)}
 									>
 									<span class="flex-1">{year.label}</span>
@@ -345,17 +349,17 @@
             <h2 class="text-xl font-semibold">Категории</h2>
             <button
                 onclick={clearSelection}
-                class="hover:bg-walnut-accent rounded bg-gray-500 p-2 px-4 text-white transition-colors"
+                class="hover:bg-walnut-light rounded bg-walnut-accent border p-2 px-4 text-black transition-colors"
                 >Снять выделение</button
             >
         </div>
         <!-- Контейнер с прокруткой -->
         <div
-            class="h-fit flex-grow overflow-y-auto rounded border bg-zinc-900 p-2 pr-2"
+            class="h-fit flex-grow overflow-y-auto rounded border bg-walnut-accent p-2 pr-2"
             class:border-red-500={genreError}
         >
             {#each categories as category, parentIndex}
-                <div class="category-item mb-2 rounded border bg-zinc-800 p-2">
+                <div class="category-item mb-2 rounded border bg-walnut-accent p-2">
                     <button
                         onclick={() => toggleCategory(parentIndex)}
                         class="flex w-full flex-row items-center gap-3 text-left font-bold"
@@ -393,7 +397,7 @@
 <div class="mt-4 flex justify-end">
     <button
         onclick={confirmData}
-        class="hover:bg-walnut-accent rounded bg-gray-500 p-2 px-20 text-white transition-colors"
+        class="hover:bg-walnut-light rounded border bg-walnut-accent p-2 px-20 text-black transition-colors"
         >Далее</button
     >
 </div>
@@ -406,8 +410,8 @@
 	}
 
 	.category-item:hover {
-		background-color: rgba(59, 130, 246, 0.1);
-		box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+		background-color: #E8E3D0;
+		box-shadow: 0 0 0 2px rgb(255, 255, 255);
 	}
 
 	input {
@@ -418,8 +422,8 @@
 	}
 
 	input:focus {
-		border-color: #3b82f6;
-		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+		border-color: #eaeed3;
+		box-shadow: 0 0 0 3px rgb(227, 233, 208);
 		outline: none;
 	}
 

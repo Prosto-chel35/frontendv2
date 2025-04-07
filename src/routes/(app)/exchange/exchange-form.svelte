@@ -26,14 +26,16 @@
 	}
 </script>
 
-<Card.Root class="mx-auto w-full max-w-6xl text-white">
+<Card.Root class="mx-auto w-full max-w-6xl text-white bg-walnut-muted">
 	<Tabs.Root bind:value={currentTab} class="w-full">
-		<Tabs.List class="grid w-full grid-cols-3 rounded-t-md">
-			<Tabs.Trigger value="exchange" class="rounded-none" >
+		<Tabs.List class="grid w-full grid-cols-3 rounded-t-md bg-walnut-dark">
+			<Tabs.Trigger value="exchange" class="rounded-none " disabled>
 				Хочу обменять
 			</Tabs.Trigger>
-			<Tabs.Trigger value="receive" class="rounded-none" >Хочу получить</Tabs.Trigger>
-			<Tabs.Trigger value="delivery" class="rounded-none" >
+			<Tabs.Trigger value="receive" class="rounded-none " disabled>
+				Хочу получить
+			</Tabs.Trigger>
+			<Tabs.Trigger value="delivery" class="rounded-none" disabled>
 				Адрес доставки
 			</Tabs.Trigger>
 		</Tabs.List>

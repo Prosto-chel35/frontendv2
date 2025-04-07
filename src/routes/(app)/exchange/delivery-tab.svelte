@@ -53,7 +53,7 @@
 
 </script>
 
-<div class="flex w-full rounded-lg bg-zinc-900 p-6 shadow">
+<div class="flex w-full rounded-lg bg-walnut-accent text-black p-6 shadow">
 	<!-- Левая колонка -->
 	<div class="flex h-[400px] w-1/2 flex-col pr-4">
 		<!-- Город -->
@@ -202,8 +202,8 @@
 
 <!-- Кнопки -->
 <div class="mt-4 flex justify-between">
-	<button onclick={onPrevTab} class="rounded bg-gray-500 p-2 px-20 text-white">Назад</button>
-	<button  class="rounded bg-blue-500 p-2 px-6 text-white"
+	<button onclick={onPrevTab} class="rounded hover:bg-walnut-light bg-walnut-accent  p-2 px-20 text-black">Назад</button>
+	<button  class="rounded hover:bg-walnut-light bg-walnut-accent  p-2 px-6 text-black"
 		>Подтвердить данные</button
 	>
 </div>
@@ -217,10 +217,11 @@
 	}
 
 	input:focus {
-		border-color: #3b82f6;
-		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+		border-color: #eaeed3;
+		box-shadow: 0 0 0 3px rgb(227, 233, 208);
 		outline: none;
 	}
+
 
 	.border-red-500 {
 		border-color: #ef4444;
@@ -231,7 +232,4 @@
 		transition: background-color 0.3s ease;
 	}
 
-	button:hover {
-		background-color: #3b82f6;
-	}
 </style>

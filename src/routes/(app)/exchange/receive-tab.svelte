@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { ChevronUp } from 'lucide-svelte';
+
 	type Props = {
 		onNextTab: () => void;
 		title?: string;
@@ -154,24 +156,27 @@
 	});
 </script>
 
-<div class="flex w-full rounded-lg bg-zinc-900 p-6 shadow">
-	<div class="mx-auto flex h-[400px] w-1/2 flex-col">
+<div class="flex w-full rounded-lg bg-walnut-accent p-6 shadow  text-black">
+	<div class="mx-auto flex h-[400px] w-1/2 flex-col 	">
 		<div class="mb-4 flex items-center justify-between">
 			<h2 class="text-xl font-semibold">Категории</h2>
-			<button onclick={clearSelection} class="rounded bg-gray-500 p-2 px-4 text-white"
+			<button onclick={clearSelection} class="rounded hover:bg-walnut-light border bg-walnut-accent p-2 px-4 text-black"
 				>Снять выделение</button
 			>
 		</div>
 
-		<div class="flex-grow overflow-y-auto rounded border bg-zinc-900 p-2 pr-2">
+		<div class="flex-grow  bg-walnut-accent overflow-y-auto rounded border p-2 pr-2">
 			{#each categories as category, parentIndex}
-				<div class="category-item mb-2 rounded border bg-zinc-800 p-2">
+				<div class="category-item mb-2 rounded border bg-walnut-accent p-2">
 					<button
 						onclick={() => toggleCategory(parentIndex)}
-						class="w-full text-left font-bold"
+						class="flex w-full flex-row items-center gap-3 text-left font-bold"
 						style="font-weight: {category.selected ? 'bold' : 'normal'}"
 					>
-						{category.expanded ? '^' : '+'}
+						<ChevronUp
+							class="size-5 transition-transform data-[selected]:rotate-180"
+							data-selected={category.expanded ? '' : undefined}
+						/>
 						{category.name}
 					</button>
 					{#if category.expanded}
@@ -194,12 +199,12 @@
 </div>
 
 <div class="mt-4 flex justify-between">
-	<button onclick={onPrevTab} class="rounded bg-gray-500 p-2 px-20 text-white">Назад</button>
+	<button onclick={onPrevTab} class="rounded hover:bg-walnut-light bg-walnut-accent p-2 px-20 text-black">Назад</button>
 	<button
 		onclick={() => validateAndProceed()}
 		class="{isNextEnabled
-			? 'bg-blue-500'
-			: 'cursor-not-allowed bg-gray-500'} rounded p-2 px-20 text-white"
+			? 'bg-walnut-accent'
+			: 'cursor-not-allowed bg-gray-500'} rounded p-2 px-20 text-black"
 		disabled={!isNextEnabled}
 	>
 		Далее
@@ -218,8 +223,8 @@
 	}
 
 	.category-item:hover {
-		background-color: rgba(59, 130, 246, 0.1);
-		box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+		background-color: #E8E3D0;
+		box-shadow: 0 0 0 2px rgb(255, 255, 255);
 	}
 
 	input {
@@ -230,8 +235,8 @@
 	}
 
 	input:focus {
-		border-color: #3b82f6;
-		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+		border-color: #eaeed3;
+		box-shadow: 0 0 0 3px rgb(227, 233, 208);
 		outline: none;
 	}
 
@@ -240,7 +245,5 @@
 		transition: background-color 0.3s ease;
 	}
 
-	button:hover {
-		background-color: #3b82f6;
-	}
+	
 </style>
