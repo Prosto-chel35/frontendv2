@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChevronUp } from 'lucide-svelte';
+	
 	import Input from "./Input.svelte";
   
 	type Props = {
@@ -32,24 +32,9 @@
 	let streetValid =$state(true);
 	let lastNameValid =$state(true);
 	let firstNameValid =$state(true);
-	let buildingValid =$state(true);
 	let householdValid =$state(true);
-	let SurNameValid =$state(true);
 	let flatValid =$state(true);
 	let indexValid = $state(true);
-
-	function formatISBN(value: string): string {
-		value = value.replace(/\D/g, ""); 
-	
-		let formatted = "";
-		if (value.length > 0) formatted += value.slice(0, 3);
-		if (value.length > 3) formatted += "-" + value.slice(3, 4);
-		if (value.length > 4) formatted += "-" + value.slice(4, 9);
-		if (value.length > 9) formatted += "-" + value.slice(9, 12);
-		if (value.length > 12) formatted += "-" + value.slice(12, 13);
-		return formatted; 
-	}
-
 
 </script>
 
@@ -96,8 +81,7 @@
         		type="text" 
         		invalidMsg="Некорректный формат." 
         		placeholder="номер" 
-        		required
-        		data-valid={buildingValid}
+        		required={false}
     		/>
 			</div>
 
@@ -135,12 +119,11 @@
 				id="index"
 				label="Индекс"
 				bind:value={index}
-				pattern={/^\d{3}-\d-\d{5}-\d{3}-\d$/}
+				pattern={/^\d{6}$/}  
 				type="text"
 				invalidMsg="Некорректный формат Index."
 				placeholder="XXXYYY"
 				required
-				formatter={formatISBN}
 				data-valid={indexValid}
 			/>
 		</div>
@@ -193,7 +176,7 @@
 			invalidMsg="Некорректный формат." 
 			placeholder="Иванович" 
 			required={false}
-			data-valid={SurNameValid}
+			
 		/>
 		</div>
 		</div>

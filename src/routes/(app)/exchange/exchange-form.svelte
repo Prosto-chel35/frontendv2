@@ -35,7 +35,7 @@
 			<Tabs.Trigger value="receive" class="rounded-none " disabled>
 				Хочу получить
 			</Tabs.Trigger>
-			<Tabs.Trigger value="delivery" class="rounded-none" disabled>
+			<Tabs.Trigger value="delivery" class="rounded-none" >
 				Адрес доставки
 			</Tabs.Trigger>
 		</Tabs.List>

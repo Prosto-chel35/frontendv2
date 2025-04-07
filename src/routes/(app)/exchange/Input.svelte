@@ -7,7 +7,7 @@
         value: T;
         invalidMsg: string;
         pattern?: RegExp;
-        formatter?: (value: T) => T; // Форматирование значения
+        formatter?: (value: T) => T; 
         type: HTMLInputAttributes["type"];
         required: boolean;
         placeholder?: string;
@@ -22,7 +22,8 @@
     function validate() {
         const isFilled = !!input.value.trim().length;
         const isPatternValid = pattern ? pattern.test(input.value) : true;
-        valid = isFilled && isPatternValid;
+        
+        valid = props.required ? (isFilled && isPatternValid) : (isFilled ? isPatternValid : true);
     }
 
     let { id, label, value = $bindable(), formatter, pattern, invalidMsg,...props }: Props<T> = $props();
